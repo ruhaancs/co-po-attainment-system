@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-$dbHost = mysql.railway.internal;
-$dbUser = root;
-$dbPass = vijkiUKmRcXwvilSWRJkocJLtRFkTdUI;
-$dbName = railway;
-$dbPort = (int)3306;
+$dbHost = getenv('MYSQLHOST');
+$dbUser = getenv('MYSQLUSER');
+$dbPass = getenv('MYSQLPASSWORD');
+$dbName = getenv('MYSQLDATABASE');
+$dbPort = (int) getenv('MYSQLPORT');
 
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName, $dbPort);
 
