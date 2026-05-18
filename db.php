@@ -1,17 +1,21 @@
 <?php
-declare(strict_types=1);
+$mysql_url = getenv('MYSQL_URL');
 
-$dbHost = getenv('MYSQLHOST');
-$dbUser = getenv('MYSQLUSER');
-$dbPass = getenv('MYSQLPASSWORD');
-$dbName = getenv('MYSQLDATABASE');
-$dbPort = (int) getenv('MYSQLPORT');
-
-$conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName, $dbPort);
-
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+if (!$mysql_url) {
+    die("MYSQL_URL environment variable not found.");
 }
 
-$conn->set_charset("utf8mb4");
+$parts = parse_url($mysql_url);
+
+$host = $parts['host'];
+$user = $parts['user'];
+$pass = $parts['pass'];
+$db   = ltrim($parts['path'], '/');
+$port = $parts['port'] ?? 3306;
+
+$conn = new mysqli($host, $user, $pass, $db, $port);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>
