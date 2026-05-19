@@ -31,3 +31,7 @@ if ($conn->connect_error) {
 }
 
 $conn->set_charset('utf8mb4');
+<<<<<<< HEAD
+=======
+?>
+>>>>>>> 4171e7c (Final verified deployment setup)

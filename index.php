@@ -354,6 +354,11 @@ $activePage = in_array($page, ["dashboard", "courses", "cos", "questions", "mark
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CO-PO Attainment System</title>
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+>>>>>>> 4171e7c (Final verified deployment setup)
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -368,6 +373,10 @@ $activePage = in_array($page, ["dashboard", "courses", "cos", "questions", "mark
             <a class="<?= $activePage === 'dashboard' ? 'active' : ''; ?>" href="index.php?page=dashboard">
     <i class="fa-solid fa-gauge"></i> Dashboard
     </a>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 4171e7c (Final verified deployment setup)
 
 <a class="<?= $activePage === "courses" ? "active" : ""; ?>" href="index.php?page=courses">Course Management</a>
 
@@ -413,7 +422,11 @@ $activePage = in_array($page, ["dashboard", "courses", "cos", "questions", "mark
             <button id="menuToggle" class="menu-btn" type="button">☰</button>
             <div>
                 <h1><?= esc(ucfirst($activePage)); ?></h1>
+<<<<<<< HEAD
                 <p>Welcome, <?= esc($_SESSION["admin_username"] ?? "Admin"); ?></p>
+=======
+                <p>Welcome, <?= esc($_SESSION["username"] ?? "Admin"); ?></p>
+>>>>>>> 4171e7c (Final verified deployment setup)
             </div>
         </header>
 
