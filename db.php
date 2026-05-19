@@ -24,13 +24,10 @@ if (!$host || !$user || !$dbname) {
     die('Invalid MYSQL_URL format.');
 }
 
-try {
-    $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
+$conn = new mysqli($host, $user, $pass, $dbname, $port);
 
-    $pdo = new PDO($dsn, $user, $pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ]);
-} catch (PDOException $e) {
-    die('Database connection failed: ' . $e->getMessage());
+if ($conn->connect_error) {
+    die('Database connection failed: ' . $conn->connect_error);
 }
+
+$conn->set_charset('utf8mb4');
