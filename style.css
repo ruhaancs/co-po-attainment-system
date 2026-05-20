@@ -717,3 +717,45 @@ button.btn-update:hover {
 .inline-form button:not(.btn-delete).btn-update {
     background: #2563eb !important;
 }
+/* Hamburger button */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 2000;
+    background: #0f172a;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px; /* hidden by default */
+        width: 280px;
+        height: 100vh;
+        z-index: 1500;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        width: 100%;
+        padding: 70px 20px 20px;
+    }
+}
