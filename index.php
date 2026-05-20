@@ -375,10 +375,7 @@ $activePage = in_array($page, ["dashboard", "courses", "cos", "questions", "mark
             <a class="<?= $activePage === 'dashboard' ? 'active' : ''; ?>" href="index.php?page=dashboard">
     <i class="fa-solid fa-gauge"></i> Dashboard
     </a>
-<<<<<<< HEAD
-=======
-    
->>>>>>> 4171e7c (Final verified deployment setup)
+
 
 <a class="<?= $activePage === "courses" ? "active" : ""; ?>" href="index.php?page=courses">Course Management</a>
 
