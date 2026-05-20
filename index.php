@@ -424,11 +424,11 @@ $activePage = in_array($page, ["dashboard", "courses", "cos", "questions", "mark
             <button id="menuToggle" class="menu-btn" type="button">☰</button>
             <div>
                 <h1><?= esc(ucfirst($activePage)); ?></h1>
-<<<<<<< HEAD
+
                 <p>Welcome, <?= esc($_SESSION["admin_username"] ?? "Admin"); ?></p>
-=======
+
                 <p>Welcome, <?= esc($_SESSION["username"] ?? "Admin"); ?></p>
->>>>>>> 4171e7c (Final verified deployment setup)
+
             </div>
         </header>
 
