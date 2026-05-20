@@ -356,11 +356,11 @@ $activePage = in_array($page, ["dashboard", "courses", "cos", "questions", "mark
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CO-PO Attainment System</title>
-<<<<<<< HEAD
-=======
+
+
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
->>>>>>> 4171e7c (Final verified deployment setup)
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -425,7 +425,7 @@ $activePage = in_array($page, ["dashboard", "courses", "cos", "questions", "mark
             <div>
                 <h1><?= esc(ucfirst($activePage)); ?></h1>
 
-                <p>Welcome, <?= esc($_SESSION["admin_username"] ?? "Admin"); ?></p>
+                
 
                 <p>Welcome, <?= esc($_SESSION["username"] ?? "Admin"); ?></p>
 
