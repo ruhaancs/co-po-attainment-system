@@ -2,29 +2,17 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$mysqlUrl = getenv('MYSQL_URL');
-
-if (!$mysqlUrl) {
-    die('MYSQL_URL environment variable not found.');
-}
-
-$parts = parse_url($mysqlUrl);
-
-if ($parts === false) {
-    die('Failed to parse MYSQL_URL.');
-}
-
-$host = $parts['host'] ?? '';
-$port = $parts['port'] ?? 3306;
-$user = $parts['user'] ?? '';
-$pass = $parts['pass'] ?? '';
-$dbname = ltrim($parts['path'] ?? '', '/');
+$host = getenv('MYSQLHOST');
+$port = getenv('MYSQLPORT') ?: 3306;
+$user = getenv('MYSQLUSER');
+$pass = getenv('MYSQLPASSWORD');
+$dbname = getenv('MYSQLDATABASE');
 
 if (!$host || !$user || !$dbname) {
-    die('Invalid MYSQL_URL format.');
+    die('Database environment variables are missing.');
 }
 
-$conn = new mysqli($host, $user, $pass, $dbname, $port);
+$conn = new mysqli($host, $user, $pass, $dbname, (int)$port);
 
 if ($conn->connect_error) {
     die('Database connection failed: ' . $conn->connect_error);
