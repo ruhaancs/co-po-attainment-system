@@ -40,7 +40,7 @@ if (isset($_POST["action"]) && $_POST["action"] === "login") {
     $password = trim($_POST["password"] ?? "");
     $userType = $_POST["user_type"] ?? "admin";
 
-    $stmt = $conn->prepare("SELECT * FROM admins WHERE username = ? LIMIT 1");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? LIMIT 1");
 $stmt->bind_param("s", $username);
 
     $stmt->execute();
@@ -48,7 +48,7 @@ $stmt->bind_param("s", $username);
     $user = $result->fetch_assoc();
     
     $stmt->close();
-    if ($user && password_verify($password, $user['password_hash'])) {
+    if ($user && password_verify($password, $user['password'])) {
 
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $username;
