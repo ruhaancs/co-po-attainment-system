@@ -364,7 +364,6 @@ $activePage = in_array($page, ["dashboard", "courses", "cos", "questions", "mark
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<button id="menuToggle" class="menu-toggle">☰</button>
 
 
 <div class="layout">
