@@ -49,7 +49,11 @@ if (isset($_POST["action"]) && $_POST["action"] === "login") {
     $user = $result->fetch_assoc();
     
     $stmt->close();
-    
+    echo "<pre>";
+print_r($user);
+echo "</pre>";
+
+exit;
     if ($user && password_verify($password, $user['password_hash'])) {
     
         $_SESSION['user_id'] = $user['id'];
