@@ -40,20 +40,22 @@ if (isset($_POST["action"]) && $_POST["action"] === "login") {
     $password = trim($_POST["password"] ?? "");
     $userType = $_POST["user_type"] ?? "admin";
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? LIMIT 1");
-$stmt->bind_param("s", $username);
-
+    $stmt = $conn->prepare("SELECT * FROM admins WHERE username = ? LIMIT 1");
+    $stmt->bind_param("s", $username);
+    
     $stmt->execute();
+    
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
     
     $stmt->close();
-    if ($user && password_verify($password, $user['password'])) {
-
+    
+    if ($user && password_verify($password, $user['password_hash'])) {
+    
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = $userType;
-
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = 'admin';
+    
         header("Location: index.php?page=dashboard");
         exit;
     }
