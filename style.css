@@ -756,6 +756,16 @@ button.btn-update:hover {
     .main-content {
         margin-left: 0 !important;
         width: 100%;
-        padding: 70px 20px 20px;
+        padding: 80px 20px 20px 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }
