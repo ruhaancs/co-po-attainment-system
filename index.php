@@ -48,7 +48,7 @@ $stmt->bind_param("s", $username);
     $user = $result->fetch_assoc();
     
     $stmt->close();
-    if ($user && $password === $user['password_hash']) {
+    if ($user && password_verify($password, $user['password_hash'])) {
 
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $username;
